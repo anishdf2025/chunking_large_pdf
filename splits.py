@@ -150,7 +150,7 @@ def run_splitter_on_file(file_path, source_lang=None, target_tokens=None):
             else:
                 print("Please enter 'hindi' or 'english'")
     
-    # Set target tokens based on language
+    # Set target tokens based on language i want 
     if target_tokens is None:
         if source_lang == 'hi':
             target_tokens = 2048

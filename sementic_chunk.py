@@ -1,0 +1,20 @@
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+# Your large passage
+text = """
+Despite the increasingly urgent warnings issued by climatologists, ecologists, and geopolitical analysts around the world—who, backed by decades of peer-reviewed research and satellite data, have meticulously documented the rapid acceleration of global temperature rise, sea-level encroachment on vulnerable coastal zones, the catastrophic collapse of biodiversity in both marine and terrestrial ecosystems, and the intensifying frequency and severity of extreme weather phenomena ranging from prolonged droughts and unseasonal floods to record-breaking hurricanes and wildfires—many industrialized nations, beholden to short-term economic growth models, fossil-fuel lobbying interests, and deeply entrenched political inertia, continue to delay the implementation of ambitious mitigation policies that prioritize renewable energy transitions, systemic agricultural reforms, and climate-resilient infrastructure, thereby perpetuating not only the physical degradation of the biosphere but also exacerbating socio-economic inequalities, food insecurity, and forced migration crises that disproportionately affect historically marginalized populations, all while simultaneously fueling a global feedback loop wherein the very systems humanity depends on for survival—freshwater availability, pollination networks, arable land productivity, and atmospheric stability—are being destabilized at a rate so alarming that, unless immediate, collective, and enforceable action is taken across governmental, corporate, and civic spheres, the likelihood of crossing irreversible planetary boundaries within the current century becomes not just a theoretical projection but a looming certainty, fraught with intergenerational ethical implications and profound existential consequences for both present and future life on Earth.
+"""
+
+# Set up the RecursiveCharacterTextSplitter
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=300,          # maximum size per chunk (in characters)
+    chunk_overlap=30,        # number of overlapping characters between chunks
+    separators=["\n\n", "\n", ".", " ", ""]  # priority order for splitting
+)
+
+# Split the text into chunks
+chunks = text_splitter.split_text(text)
+
+# Print the results
+for i, chunk in enumerate(chunks, 1):
+    print(f"Chunk {i}:\n{chunk}\n")
