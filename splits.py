@@ -6,7 +6,7 @@ class TextSplitter:
         self._load_spacy_model()
     
     def _load_spacy_model(self):
-        """Load spaCy model for English text processing"""
+        """Load spaCy model for English text processing i am anish kumar maurya"""
         try:
             import spacy
             try:
